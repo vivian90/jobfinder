@@ -1,0 +1,27 @@
+<section data-ng-init="vm.findOne()">
+  <div class="page-header">
+    <h1 ng-bind="vm.job.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="vm.job.isCurrentUserOwner">
+    <a class="btn btn-primary" ui-sref="jobs.edit({ jobId: vm.job._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="job-info">
+    <p data-ng-bind="vm.job.description"></p>
+    <ul>
+      <li><strong>Listing Date: </strong><span data-ng-bind="vm.job.created | date:'mediumDate'"></span></li>
+      <li><strong>Job Poster: </strong><span data-ng-bind="vm.job.user.displayName"></span></li>
+      <li><strong>Company Name: </strong><span data-ng-bind="vm.job.company"></span></li>
+      <li><strong>State: </strong><span data-ng-bind="vm.job.state"></span></li>
+      <li><strong>Hourly Wage: </strong><span data-ng-bind="vm.job.hourly_wage"></span></li>
+      <li><strong>Requirements: </strong><span data-ng-bind="vm.job.requirements"></span></li>
+      <li><strong>Contact Email: </strong><a href="mailto:{{vm.job.contact_email}}"><span data-ng-bind="vm.job.contact_email"></span></li>
+    </ul>
+  </div>
+  <br><br>
+  <button class="btn btn-lg"><a ui-sref="jobs.list()">Go Back</a></button>
+</section>
